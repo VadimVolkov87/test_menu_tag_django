@@ -1,0 +1,35 @@
+<!-- /templates/tags_menu/menu.html -->
+<ul class="menu">
+  {% for menu_item in menu_items %}
+      <li class="{% if menu_item.active %}active{% endif %}">
+        <a href="{% if menu_item.item_url %}{{ menu_item.item_url }}{% else %} {{menu_item.item_named_url}} {% endif %}">{{ menu_item.item }}</a>
+          {% if menu_item.active and menu_item.children %}
+              <ul class="submenu">
+                {% for child in menu_item.children %}
+                  <li class="{% if child.active %}active{% endif %}">
+                    <a href="{% if child.item_url %}{{ child.item_url }}{% else %} {{child.item_named_url}} {% endif %}">{{ child.item }}</a>
+                      {% if child.active and child.children %}
+                          <ul class="submenu">
+                            {% for child in child.children %}
+                              <li class="{% if child.active %}active{% endif %}">
+                                <a href="{% if child.item_url %}{{ child.item_url }}{% else %} {{child.item_named_url}} {% endif %}">{{ child.item }}</a>
+                              </li>
+                                {% if child.active and child.children %}
+                                  <ul class="submenu">
+                                    {% for child in child.children %}
+                                      <li class="{% if child.active %}active{% endif %}">
+                                        <a href="{% if child.item_url %}{{ child.item_url }}{% else %} {{child.item_named_url}} {% endif %}">{{ child.item }}</a>
+                                      </li>
+                                    {% endfor %}
+                                  </ul>
+                                {% endif %}
+                            {% endfor %}
+                          </ul>
+                      {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+          {% endif %}  
+      </li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,21 @@
+<!-- Пример использования в шаблоне -->
+{% load menu_tags %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Пример</title>
+</head>
+<body>
+    <div class="header">
+        {% draw_menu 'performance' %}
+    </div>
+    <div class="content">
+        <h1>Сериал - художественная телепередача/фильм с открытым <br>
+            (отсутствие«финальной точки») или частично завершённым сюжетом.</h1>
+    </div>
+    <div class="header">
+        {% draw_menu 'additional_menu' %}
+    </div>
+</body>
+</html>

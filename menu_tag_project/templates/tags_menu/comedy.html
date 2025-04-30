@@ -1,0 +1,22 @@
+<!-- Пример использования в шаблоне -->
+{% load menu_tags %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Пример</title>
+</head>
+<body>
+    <div class="header">
+        {% draw_menu 'performance' %}
+    </div>
+    <div class="content">
+        <h1>Комедия — это художественное произведение с юмористическим сюжетом. <br>
+            Термин «комедия» состоит из двух греческих слов: komos, что переводится <br>
+            как «веселое шествие» или «праздник в честь Диониса», и «ode» — «песня».</h1>
+    </div>
+    <div class="header">
+        {% draw_menu 'additional_menu' %}
+    </div>
+</body>
+</html>
