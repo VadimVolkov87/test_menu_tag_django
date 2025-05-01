@@ -23,7 +23,7 @@
 Клонировать репозиторий и перейти в него в терминале:
 
 ```bash
-git clone https://github.com/VadimVolkov87/QRkot_spreadsheets
+git clone https://github.com/VadimVolkov87/test_menu_tag_django
 ```
 
 ```bash
