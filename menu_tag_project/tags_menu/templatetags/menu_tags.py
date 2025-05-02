@@ -21,10 +21,14 @@ def draw_menu(context, menu_name):
     menu_items = defaultdict(list)
     for entity in menu:
         if entity['url']:
-            active = context['request'].path.startswith(entity['url'])
+            active = context['request'].path.startswith(f'{entity['url']}/')
         else:
             active = context['request'].resolver_match.url_name.startswith(entity['named_url'])
         if entity['named_url']:
+#            item_named_url = reverse(
+#                f'displaying_app:{entity['named_url']}',
+#                kwargs={'url': entity['url'].replace('/', '')}
+#            )
             item_named_url = reverse(f'displaying_app:{entity['named_url']}')
         else:
             item_named_url = None
@@ -48,6 +52,7 @@ def draw_menu(context, menu_name):
                         if submenu['active']:
                             menu_items[key_2][index]['active'] = True
                     menu_items[key_2][index]['children'] = menu_items.pop(key)
+#    print(menu_items[0])
     return {
         'menu': menu_name,
         'menu_items': menu_items[0],

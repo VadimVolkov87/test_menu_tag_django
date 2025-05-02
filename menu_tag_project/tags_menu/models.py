@@ -22,11 +22,11 @@ class MenuItem(models.Model):
     )
     parent = models.ForeignKey('self', null=True, blank=True, related_name='children',
                                on_delete=models.CASCADE, verbose_name='Родитель')
-    title = models.CharField(max_length=255, verbose_name='Название')
-    url = models.CharField(max_length=255, blank=True, null=True)
-    named_url = models.CharField(
-        max_length=255, blank=True, null=True, verbose_name='Именованный URL'
-    )
+    title = models.CharField('Название', max_length=255)
+    url = models.CharField(max_length=255, blank=True, null=True,
+                           help_text='Формат ввода "/example"')
+    named_url = models.CharField('Именованный URL', max_length=255, blank=True,
+                                 null=True, help_text='Формат ввода "example"')
 
     def get_url(self):
         """Возвращает URL для пункта. Использует named_url, если задан."""

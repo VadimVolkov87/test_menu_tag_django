@@ -2,61 +2,39 @@
 from django.shortcuts import render
 
 
+templates = {
+    '/cartoons/': 'tags_menu/cartoons.html',
+    '/movies/': 'tags_menu/movie.html',
+    '/plasticine/': 'tags_menu/cartoons.html',
+    '/grey_wolf/': 'tags_menu/cartoons.html',
+    '/plasticine_crow/': 'tags_menu/cartoons.html',
+    '/tatarski/': 'tags_menu/director.html',
+    '/bardin/': 'tags_menu/director.html',
+    '/drawn/': 'tags_menu/cartoons.html',
+    '/melik_sarkisian/': 'tags_menu/production_designer.html',
+    '/puppet/': 'tags_menu/cartoons.html',
+    '/kovalev/': 'tags_menu/production_designer.html',
+    '/gladkov/': 'tags_menu/composer.html',
+    '/drama/': 'tags_menu/drama.html',
+    '/comedy/': 'tags_menu/comedy.html',
+    '/detective/': 'tags_menu/detective.html',
+    '/series/': 'tags_menu/series.html',
+    '/shows/': 'tags_menu/shows.html',
+    '/questions/': 'tags_menu/questions_contacts.html',
+    '/contacts/': 'tags_menu/questions_contacts.html',
+    }
+
+
 def index(request):
     """Функция представления главной страницы."""
     return render(request, 'tags_menu/index.html')
 
 
+def point(request, url):
+    """Функция представления страницы пункта меню."""
+    return render(request, template_name=templates[request.path])
+
+
 def cartoons(request):
     """Функция представления страницы мультфильмов."""
     return render(request, 'tags_menu/cartoons.html')
-
-
-def movies(request):
-    """Функция представления страницы кинофильмов."""
-    return render(request, 'tags_menu/movie.html')
-
-
-def comedy(request):
-    """Функция представления страницы триллеров."""
-    return render(request, 'tags_menu/comedy.html')
-
-
-def drama(request):
-    """Функция представления страницы драм."""
-    return render(request, 'tags_menu/drama.html')
-
-
-def detective(request):
-    """Функция представления страницы детективов."""
-    return render(request, 'tags_menu/detective.html')
-
-
-def composer(request):
-    """Функция представления страницы композитора."""
-    return render(request, 'tags_menu/composer.html')
-
-
-def director(request):
-    """Функция представления страницы режиссера."""
-    return render(request, 'tags_menu/director.html')
-
-
-def production_designer(request):
-    """Функция представления страницы художника-постановщика."""
-    return render(request, 'tags_menu/production_designer.html')
-
-
-def series(request):
-    """Функция представления страницы сериалов."""
-    return render(request, 'tags_menu/series.html')
-
-
-def shows(request):
-    """Функция представления страницы шоу."""
-    return render(request, 'tags_menu/shows.html')
-
-
-def questions_contacts(request):
-    """Функция представления страницы вопросов/контактов."""
-    return render(request, 'tags_menu/questions_contacts.html')
